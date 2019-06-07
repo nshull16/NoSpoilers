@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Spoiler Filter",
+  "description": "Chrome extension to filter out facebook results",
+  "version": "0.0",
+  "browser_action": {
+    "default_icon": "placeholder.png" //add default_icon
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.facebook.com/*"
+      ],
+      "js": [
+        "jquery-3.4.1.min.js",
+        "spoiler.js"
+      ]
+    }
+  ]
+}
