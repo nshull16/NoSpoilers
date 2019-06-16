@@ -4,7 +4,7 @@
   "description": "Chrome extension to filter out facebook results",
   "version": "0.0",
   "browser_action": {
-    "default_icon": "placeholder.png" //add default_icon
+    "default_icon": "placeholder.png",
     "default_popup": "popup.html"
   },
   "permissions": [
