@@ -12,10 +12,22 @@ chrome.storage.sync.get("spoiler", function(results){
 
 function saveSpoilersList() {
     chrome.storage.sync.set({
-        'spoiler': spoilerList["spoiler"]
+        'spoiler': spoilersList["spoiler"]
     }, function (result) {
         if (chrome.runtime.error) {
             console.log(chrome.runtime.error);
         }
     });
+}
+
+function updateView() {
+    if(spoilersList["spoiler"] != null){
+        $('#listview').empty();
+        var unorderedList = '<ul>', i;
+        for(i = 0; i < spoilersList["spoiler"].length; i++){
+            unorderedList += '<li><a class="spoilerListItem" href="#">' + spoilersList['spoiler'][i] + '</a></li>';
+        }
+        unorderedList += '<ul>';
+        $('#listView').append(unorderedList);
+    }
 }
