@@ -6,9 +6,34 @@ chrome.storage.sync.get("spoiler", function(results){
         spoilersList = {
             'spoiler': []
         };
-        SaveSpoilersList();
+        saveSpoilersList();
     }
 });
+
+$(function (){
+    updateView();
+    searchForSpoilers();
+
+    $('#submit-button').click(function(evt){
+        item = $('#block-item').val().toLowerCase();
+        spoilersList['spoiler'].push(item);
+        saveSpoilersList();
+        $('#block-item').val('');
+        updateView();
+        searchForSpoilers();
+    });
+
+    $('#clear-button').click(function(evt){
+        spoilersList = {
+            'spoiler': []
+        };
+        saveSpoilersList();
+        $('#block-item').val('');
+        updateView();
+        searchForSpoilers();
+    });
+
+})
 
 function saveSpoilersList() {
     chrome.storage.sync.set({
