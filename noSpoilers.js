@@ -33,7 +33,19 @@ $(function (){
         searchForSpoilers();
     });
 
-})
+    //when a spoilerListItem is clicked, remove it from the list
+    $(document).on('click', '.spoilerListItem', function(item){
+        $('p:contain(' + item.currentTarget.innerHTML + ')').parents('.userContentWrapper').css('-webkit-filter', '');
+        spoilersList["spoiler"].splice($.inArray(item.currentTarget.innerHTML, spoilersList["spoiler"]), 1);
+        saveSpoilersList();
+        updateView();
+        searchForSpoilers();
+    })
+    //observer used for when facebook loads more content without refreshing the page
+    var observer = new MutationObserver(function (mutations, observer){
+        searchForSpoilers();
+    });
+});
 
 function saveSpoilersList() {
     chrome.storage.sync.set({
