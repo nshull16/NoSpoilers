@@ -73,7 +73,7 @@ function searchForSpoilers() {
     if(spoilersList["spoiler"] != null){
         var search = '';
         spoilersList["spoiler"].forEach(function(item){
-            search = search + "p:contains('" + item + "', ";
+            search = search + "p:contains('" + item + "'), ";
         });
         search = search.substring(0, search.length - 2);
         $(search).parents('.userContentWrapper').css('-webkit-filter', 'blur(6px)');
