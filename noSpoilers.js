@@ -15,7 +15,7 @@ $(function (){
     searchForSpoilers();
 
     $('#submit-button').click(function(evt){
-        item = $('#block-item').val().toLowerCase();
+        item = $('#block-item').val();
         spoilersList['spoiler'].push(item);
         saveSpoilersList();
         $('#block-item').val('');
