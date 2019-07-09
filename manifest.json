@@ -18,7 +18,7 @@
       ],
       "js": [
         "jquery-3.4.1.min.js",
-        "spoiler.js"
+        "noSpoilers.js"
       ]
     }
   ]
