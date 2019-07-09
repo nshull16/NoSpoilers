@@ -60,8 +60,9 @@ function saveSpoilersList() {
 function updateView() {
     if(spoilersList["spoiler"] != null){
         $('#listview').empty();
-        var unorderedList = '<ul>', i;
-        for(i = 0; i < spoilersList["spoiler"].length; i++){
+        var unorderedList = '<ul>';
+        var i;
+        for(i = 0; i < spoilersList['spoiler'].length; i++){
             unorderedList += '<li><a class="spoilerListItem" href="#">' + spoilersList['spoiler'][i] + '</a></li>';
         }
         unorderedList += '<ul>';
